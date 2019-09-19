@@ -7,5 +7,13 @@
     </div>
   </a>
 </div>
-
 <app-hero-search></app-hero-search>
+<h3>Top Powers</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let power of powers" class="col-1-4"
+      routerLink="/powerdetail/{{power.pid}}">
+    <div class="module power">
+      <h2>{{power.pname}}</h2>
+    </div>
+  </a>
+</div>
