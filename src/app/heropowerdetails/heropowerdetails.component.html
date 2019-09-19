@@ -1,0 +1,33 @@
+
+<h2>My Hero Powers</h2>
+
+<div class="grid grid-pad">
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add1(heroName.value); heroName.value=''">
+    add hero
+  </button>
+  <label>Hero power name:
+    <input #powerName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add2(powerName.value); powerName.value=''">
+    add power
+  </button>
+</div>
+
+<ul class="heroes">
+  <li  *ngFor="let heropower of heropowers">
+    
+    <!--<a routerLink="/heropowerdetail/{{heropower.id}}"> -->
+          <span class="badge">{{heropower.hpid}}</span> {{heropower.hpname}}
+  
+          <button class="delete" title="delete hero power"
+      (click)="delete(heropower)">x</button>
+  </li>
+  
+    
+  
+  </ul>

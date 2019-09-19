@@ -5,6 +5,7 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent }  from './power-detail/power-detail.component';
+import {  HeropowerdetailsComponent }  from './heropowerdetails/heropowerdetails.component';
 
   const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -12,7 +13,8 @@ import { PowerDetailComponent }  from './power-detail/power-detail.component';
     { path: 'detail/:id', component: HeroDetailComponent },
     { path: 'heroes', component: HeroesComponent },
     { path: 'powers', component: PowersComponent },
-    { path: 'powerdetail/:pid', component: PowerDetailComponent }
+    { path: 'powerdetail/:pid', component: PowerDetailComponent },
+    { path: 'heropowers', component: HeropowerdetailsComponent }
     
   ];
 

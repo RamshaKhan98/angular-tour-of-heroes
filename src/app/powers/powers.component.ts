@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import {Power} from '../power';
 import { PowerService } from '../power.service';
 //import { POWERS } from '../mock-powers';
@@ -10,7 +10,7 @@ import { PowerService } from '../power.service';
 })
 export class PowersComponent implements OnInit {
     powers : Power[];
-
+    
    
 
     constructor(private powerService: PowerService) { }

@@ -16,6 +16,7 @@ import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
 import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
+import { HeropowerdetailsComponent } from './heropowerdetails/heropowerdetails.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { PowerDetailComponent } from './power-detail/power-detail.component';
     MessagesComponent,
     HeroSearchComponent,
     PowersComponent,
-    PowerDetailComponent
+    PowerDetailComponent,
+    HeropowerdetailsComponent
   ],
   bootstrap: [ AppComponent ]
 })
