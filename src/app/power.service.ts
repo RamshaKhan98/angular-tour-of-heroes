@@ -73,8 +73,32 @@ export class PowerService {
       tap((newPower: Power) => this.log(`added power w/ pid=${newPower.pid}`)),
       catchError(this.handleError<Power>('addPower'))
     );
+  } 
+  /** POST: add a new powr to the hero at server */
+  addPowerToHero(Array : any): Observable<any> {
+    let id = Array.hero_id;
+    let power_id = Array.power_id;
+    console.log(Array)
+    return this.http.post<any>(`http://localhost:5000/api/bridgeTable/${id}/${power_id}` , this.httpOptions)
+  } 
+   /** GET: get  powers of the hero at server */
+   getHeroPowers(id: number): Observable<Power[]> {
+    const url = `http://localhost:5000/api/bridgeTable/${id}`;
+    return this.http.get<Power[]>(url).pipe(
+      tap(_ => this.log(`fetched heroPowers  id=${id}`)),
+      catchError(this.handleError<Power[]>(`getHeroPowers id=${id}`))
+    );
   }
-  
+/** 
+  getHeroPowers(id: number): Observable<Power[]> {
+    const url = `http://localhost:5000/bridgeTable/${id}`;
+    return this.http.get<Power[]>(url);
+  }*/
+  /** DELETE: delete the power of hero from the server */
+  deletePowerFromHeroPower(id : number): Observable<any> {
+    return this.http.delete<any>(`http://localhost:5000/api/bridgeTable/${id}`, this.httpOptions)
+   
+  } 
 
   /** DELETE: delete the hero from the server */
   deletePower (power: Power | number): Observable<Power> {

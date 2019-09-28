@@ -17,3 +17,12 @@
     </div>
   </a>
 </div>
+<h3>Favourtie Costumes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let costume of costumes" class="col-1-4"
+      routerLink="/costumedetail/{{costume.cid}}">
+    <div class="module costume">
+      <h2>{{costume.cname}}</h2>
+    </div>
+  </a>
+</div>

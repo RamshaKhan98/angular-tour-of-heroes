@@ -1,12 +1,70 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
+  <h1>{{hero.name | uppercase}} Details</h1>
   <div><span>id: </span>{{hero.id}}</div>
-  <div>
+    <div>
     <label>name:
       <input [(ngModel)]="hero.name" placeholder="name"/>
     </label>
-   
-  </div>
+    </div>
+
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
+
 </div>
+<ul class="heroes">
+  <h6>Powers:</h6>
+  <li *ngFor="let heroPower of heroPowers">
+      <a>
+          {{heroPower.pname}} <!--this .name is coming from query (p.name)-->
+      </a>
+      <button  (click)="deletePowerFromHeroPower(heroPower)">x</button>
+  </li>
+</ul>
+
+<h1>Add Powers to your Hero</h1>
+   <!--<ul class="heroes">
+  <li *ngFor="let power of powers">
+    <a routerLink="/powerdetail/{{power.pid}}">
+      <span class="badge">{{power.pid}}</span> {{power.pname}}
+    </a> 
+    </li>
+  </ul> -->
+
+   <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" *ngFor="let power of powers">
+          <span (click)="addHeroPower(power)">{{power.pname}}</span>
+        </a>
+      </div>
+    </div>
+
+    <ul class="heroes">
+      <h6>Costumes:</h6>
+      <li *ngFor="let heroCostume of heroCostumes">
+          <a>
+              {{heroCostume.cname}} <!--this .name is coming from query (p.name)-->
+          </a>
+          <button  (click)=" delHeroCostume(heroCostume)">x</button>
+      </li>
+    </ul>
+    
+    
+    <!-- For displaying the list of All Costumes from Costume Service-->
+  
+    <h1>Add Costume to your favourite Hero</h1>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" *ngFor="let costume of costumes">
+          <span (click)="addCostumeToHero(costume)">{{costume.cname}}</span>
+        </a>
+      </div>
+    </div>
+    
+  
+ 

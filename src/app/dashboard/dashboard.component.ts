@@ -3,6 +3,8 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Power } from '../power';
 import { PowerService } from '../power.service';
+import { Costume } from '../costume';
+import { CostumeService } from '../costume.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,12 +14,14 @@ import { PowerService } from '../power.service';
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   powers: Power[] = [];
+  costumes: Costume[] = [];
 
-  constructor(private heroService: HeroService , private powerService: PowerService ) { }
+  constructor(private heroService: HeroService , private powerService: PowerService , private costumeService: CostumeService ) { }
 
   ngOnInit() {
     this.getHeroes();
     this.getPowers();
+    this.getCostumes();
   }
 
   getHeroes(): void {
@@ -27,5 +31,9 @@ export class DashboardComponent implements OnInit {
   getPowers(): void {
     this.powerService.getPowers()
       .subscribe(powers => this.powers = powers.slice(1, 5));
+  }
+  getCostumes(): void {
+    this.costumeService.getCostumes()
+      .subscribe(costumes => this.costumes = costumes.slice(1, 5));
   }
 }
